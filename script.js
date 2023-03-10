@@ -9,11 +9,16 @@ planCards.push({
     feature3: 'Animaciones',
     feature4: 'Diseño Custom',
     feature5: 'Cambios Profundos Mensuales',
-    icon: './images/checkmark-circle-outline.png',
-    icon2: './images/checkmark-circle-outline.png',
-    icon3: './images/crossmark-circle-outline.png',
-    icon4: './images/crossmark-circle-outline.png',
-    icon5: './images/crossmark-circle-outline.png',
+    icon: './images/checkmark-circle-outline.webp',
+    icon2: './images/checkmark-circle-outline.webp',
+    icon3: './images/crossmark-circle-outline.webp',
+    icon4: './images/crossmark-circle-outline.webp',
+    icon5: './images/crossmark-circle-outline.webp',
+    alt: 'CheckIcon',
+    alt2: 'CheckIcon',
+    alt3: 'CrossIcon',
+    alt4: 'CrossIcon',
+    alt5: 'CrossIcon',
     price: '90'
 });
 planCards.push({
@@ -24,11 +29,16 @@ planCards.push({
     feature3: 'Animaciones',
     feature4: 'Diseño Custom',
     feature5: 'Cambios Profundos Mensuales',
-    icon: './images/checkmark-circle-outline.png',
-    icon2: './images/checkmark-circle-outline.png',
-    icon3: './images/checkmark-circle-outline.png',
-    icon4: './images/crossmark-circle-outline.png',
-    icon5: './images/one-circle-outline.png',
+    icon: './images/checkmark-circle-outline.webp',
+    icon2: './images/checkmark-circle-outline.webp',
+    icon3: './images/checkmark-circle-outline.webp',
+    icon4: './images/crossmark-circle-outline.webp',
+    icon5: './images/one-circle-outline.webp',
+    alt: 'CheckIcon',
+    alt2: 'CheckIcon',
+    alt3: 'CheckIcon',
+    alt4: 'CrossIcon',
+    alt5: 'OneIcon',
     price: '180'
 });
 planCards.push({
@@ -39,11 +49,16 @@ planCards.push({
     feature3: 'Animaciones',
     feature4: 'Diseño Custom',
     feature5: 'Cambios Profundos Mensuales',
-    icon: './images/checkmark-circle-outline.png',
-    icon2: './images/checkmark-circle-outline.png',
-    icon3: './images/checkmark-circle-outline.png',
-    icon4: './images/checkmark-circle-outline.png',
-    icon5: './images/two-circle-outline.png',
+    icon: './images/checkmark-circle-outline.webp',
+    icon2: './images/checkmark-circle-outline.webp',
+    icon3: './images/checkmark-circle-outline.webp',
+    icon4: './images/checkmark-circle-outline.webp',
+    icon5: './images/two-circle-outline.webp',
+    alt: 'CheckIcon',
+    alt2: 'CheckIcon',
+    alt3: 'CheckIcon',
+    alt4: 'CheckIcon',
+    alt5: 'TwoIcon',
     price: '360'
 });
     
@@ -93,6 +108,11 @@ function renderProducts(arr) {
         featureImg3.setAttribute('src', cards.icon3)
         featureImg4.setAttribute('src', cards.icon4)
         featureImg5.setAttribute('src', cards.icon5)
+        featureImg.setAttribute('alt', cards.alt)
+        featureImg2.setAttribute('alt', cards.alt2)
+        featureImg3.setAttribute('alt', cards.alt3)
+        featureImg4.setAttribute('alt', cards.alt4)
+        featureImg5.setAttribute('alt', cards.alt5)
         price.classList.add('price')
         price.innerText = 'Precio Final: $'
         priceSpan.classList.add('price__span')

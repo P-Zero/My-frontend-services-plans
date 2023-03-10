@@ -1,4 +1,13 @@
-
+@keyframes loadingUp {
+    from{
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to{
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
 
 *{
     margin: 0;
@@ -38,6 +47,7 @@
     backdrop-filter: blur(4px);
     border: 2px solid rgba(255, 255, 255, 0.4);;
     user-select: none;
+    animation: loadingUp ease-in-out 1.5s;
 }
 
 ul{
