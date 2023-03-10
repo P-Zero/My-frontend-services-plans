@@ -1,133 +1,94 @@
-const cardContainer = document.querySelector(".card__container")
-const planCards = []
+const cardContainer = document.querySelector('.card__container')
+const cards = []
+let cardGenerator
 
-planCards.push({
-    name: 'Basic',
-    time: '15 Dias',
-    feature: 'Mobile & Desktop',
-    feature2: 'UI eficiente e intuitivo',
-    feature3: 'Animaciones',
-    feature4: 'Diseño Custom',
-    feature5: 'Cambios Profundos Mensuales',
-    icon: './images/checkmark-circle-outline.webp',
-    icon2: './images/checkmark-circle-outline.webp',
-    icon3: './images/crossmark-circle-outline.webp',
-    icon4: './images/crossmark-circle-outline.webp',
-    icon5: './images/crossmark-circle-outline.webp',
-    alt: 'CheckIcon',
-    alt2: 'CheckIcon',
-    alt3: 'CrossIcon',
-    alt4: 'CrossIcon',
-    alt5: 'CrossIcon',
-    price: '90'
-});
-planCards.push({
-    name: 'Standard',
-    time: '30 Dias',
-    feature: 'Mobile & Desktop',
-    feature2: 'UI eficiente e intuitivo',
-    feature3: 'Animaciones',
-    feature4: 'Diseño Custom',
-    feature5: 'Cambios Profundos Mensuales',
-    icon: './images/checkmark-circle-outline.webp',
-    icon2: './images/checkmark-circle-outline.webp',
-    icon3: './images/checkmark-circle-outline.webp',
-    icon4: './images/crossmark-circle-outline.webp',
-    icon5: './images/one-circle-outline.webp',
-    alt: 'CheckIcon',
-    alt2: 'CheckIcon',
-    alt3: 'CheckIcon',
-    alt4: 'CrossIcon',
-    alt5: 'OneIcon',
-    price: '180'
-});
-planCards.push({
-    name: 'Expert',
-    time: '60 Dias',
-    feature: 'Mobile & Desktop',
-    feature2: 'UI eficiente e intuitivo',
-    feature3: 'Animaciones',
-    feature4: 'Diseño Custom',
-    feature5: 'Cambios Profundos Mensuales',
-    icon: './images/checkmark-circle-outline.webp',
-    icon2: './images/checkmark-circle-outline.webp',
-    icon3: './images/checkmark-circle-outline.webp',
-    icon4: './images/checkmark-circle-outline.webp',
-    icon5: './images/two-circle-outline.webp',
-    alt: 'CheckIcon',
-    alt2: 'CheckIcon',
-    alt3: 'CheckIcon',
-    alt4: 'CheckIcon',
-    alt5: 'TwoIcon',
-    price: '360'
-});
-    
-function renderProducts(arr) {
-    for (cards of arr) {
-        const card = document.createElement('div')
-        const name = document.createElement('p')
-        const time = document.createElement('p')
-        const list = document.createElement('ul')
-        const feature = document.createElement('li')
-        const feature2 = document.createElement('li')
-        const feature3 = document.createElement('li')
-        const feature4 = document.createElement('li')
-        const feature5 = document.createElement('li')
-        const featureP = document.createElement('p')
-        const featureImg = document.createElement('img')
-        const featureP2 = document.createElement('p')
-        const featureImg2 = document.createElement('img')
-        const featureP3 = document.createElement('p')
-        const featureImg3 = document.createElement('img')
-        const featureP4 = document.createElement('p')
-        const featureImg4 = document.createElement('img')
-        const featureP5 = document.createElement('p')
-        const featureImg5 = document.createElement('img')
-        const price = document.createElement('p')
-        const priceSpan = document.createElement('span')
-        
-
-        card.classList.add('card')
-        name.classList.add("name")
-        name.innerText = cards.name
-        time.classList.add('time')
-        time.innerText = cards.time
-        list.classList.add('list')
-        feature.classList.add('features')
-        feature2.classList.add('features')
-        feature3.classList.add('features')
-        feature4.classList.add('features')
-        feature5.classList.add('features')
-        featureP.innerText = cards.feature
-        featureP2.innerText = cards.feature2
-        featureP3.innerText = cards.feature3
-        featureP4.innerText = cards.feature4
-        featureP5.innerText = cards.feature5
-        featureImg.setAttribute('src', cards.icon)
-        featureImg2.setAttribute('src', cards.icon2)
-        featureImg3.setAttribute('src', cards.icon3)
-        featureImg4.setAttribute('src', cards.icon4)
-        featureImg5.setAttribute('src', cards.icon5)
-        featureImg.setAttribute('alt', cards.alt)
-        featureImg2.setAttribute('alt', cards.alt2)
-        featureImg3.setAttribute('alt', cards.alt3)
-        featureImg4.setAttribute('alt', cards.alt4)
-        featureImg5.setAttribute('alt', cards.alt5)
-        price.classList.add('price')
-        price.innerText = 'Precio Final: $'
-        priceSpan.classList.add('price__span')
-        priceSpan.innerText = cards.price
-
-        card.append(name, time, list, price)
-        list.append(feature, feature2, feature3, feature4, feature5)
-        feature.append(featureP, featureImg)
-        feature2.append(featureP2, featureImg2)
-        feature3.append(featureP3, featureImg3)
-        feature4.append(featureP4, featureImg4)
-        feature5.append(featureP5, featureImg5)
-        price.append(priceSpan)
-        cardContainer.append(card)
+class Card{
+    constructor(name, time, price, id, feature, alt){
+        this.name = name
+        this.time = time
+        this.price = price
+        this.id = id
+        this.feature = []
     }
 }
 
-renderProducts(planCards)
+const basic = new Card('Basic', '15 Dias', '90', 'basic')
+const standard = new Card('Standard', '30 Dias', '180', 'standard')
+const expert = new Card('Expert', '60 Dias', '360', 'expert')
+
+basic.feature.push(
+    {icon:'./images/checkmark-circle-outline.webp', alt: 'CheckIcon',},
+    {icon:'./images/checkmark-circle-outline.webp', alt: 'CheckIcon',},
+    {icon:'./images/crossmark-circle-outline.webp', alt: 'CrossIcon',},
+    {icon:'./images/crossmark-circle-outline.webp', alt: 'CrossIcon',},
+    {icon:'./images/crossmark-circle-outline.webp', alt: 'CrossIcon',},
+)
+standard.feature.push(
+    {icon:'./images/checkmark-circle-outline.webp', alt: 'CheckIcon',},
+    {icon:'./images/checkmark-circle-outline.webp', alt: 'CheckIcon',},
+    {icon:'./images/checkmark-circle-outline.webp', alt: 'CheckIcon',},
+    {icon:'./images/crossmark-circle-outline.webp', alt: 'CrossIcon',},
+    {icon:'./images/one-circle-outline.webp', alt: 'OneIcon',},
+)
+expert.feature.push(
+    {icon:'./images/checkmark-circle-outline.webp', alt: 'CheckIcon',},
+    {icon:'./images/checkmark-circle-outline.webp', alt: 'CheckIcon',},
+    {icon:'./images/checkmark-circle-outline.webp', alt: 'CheckIcon',},
+    {icon:'./images/checkmark-circle-outline.webp', alt: 'CheckIcon',},
+    {icon:'./images/two-circle-outline.webp', alt: 'TwoIcon',},
+)
+
+cards.push(basic, standard, expert)
+
+function cardsGenerator(){
+
+    cards.forEach((cards) => {
+        cardGenerator = `
+        <div class='card'>
+            <p class='name'>${cards.name}</p>
+            <p class='time'>${cards.time}</p>
+            <ul class='list ${cards.id}'>
+            </ul>
+            <p class='price'>Precio Final: $<span class='price__span'>${cards.price}</span></p>
+        </div>
+        `
+
+        cardContainer.innerHTML += cardGenerator 
+    })
+
+    const featureContainerBasic = document.querySelector('.basic')
+    const featureContainerStandard = document.querySelector('.standard')
+    const featureContainerExpert = document.querySelector('.expert')
+
+    function featureTemplate(f0, f1, f2, f3, f4, a0, a1, a2, a3, a4){
+        return `
+        <li class='features'>
+            <p>Mobile &amp; Desktop</p><img src=${f0} alt='${a0}'>
+        </li>
+        <li class='features'>
+            <p>UI eficiente e intuitivo</p><img src=${f1} alt='${a1}'>
+        </li>
+        <li class='features'>
+            <p>Animaciones</p><img src=${f2} alt='${a2}'>
+        </li>
+        <li class='features'>
+            <p>Diseño Custom</p><img src=${f3} alt='${a3}'>
+        </li>
+        <li class='features'>
+            <p>Cambios Profundos Mensuales</p><img src=${f4} alt=${a4}}>
+        </li>
+        `
+    }
+
+    const featureTemplateBasic = featureTemplate(basic.feature[0].icon, basic.feature[1].icon, basic.feature[2].icon, basic.feature[3].icon, basic.feature[4].icon, basic.feature[0].alt, basic.feature[1].alt, basic.feature[2].alt, basic.feature[3].alt, basic.feature[4].alt)
+
+    const featureTemplateStandard = featureTemplate(standard.feature[0].icon, standard.feature[1].icon, standard.feature[2].icon, standard.feature[3].icon, standard.feature[4].icon, standard.feature[0].alt, standard.feature[1].alt, standard.feature[2].alt, standard.feature[3].alt, standard.feature[4].alt)
+
+    const featureTemplateExpert = featureTemplate(expert.feature[0].icon, expert.feature[1].icon, expert.feature[2].icon, expert.feature[3].icon, expert.feature[4].icon, expert.feature[0].alt, expert.feature[1].alt, expert.feature[2].alt, expert.feature[3].alt, expert.feature[4].alt)
+
+    featureContainerBasic.innerHTML = featureTemplateBasic
+    featureContainerStandard.innerHTML = featureTemplateStandard
+    featureContainerExpert.innerHTML = featureTemplateExpert
+}
+
+cardsGenerator()

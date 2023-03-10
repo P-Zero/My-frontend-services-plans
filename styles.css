@@ -47,7 +47,20 @@
     backdrop-filter: blur(4px);
     border: 2px solid rgba(255, 255, 255, 0.4);;
     user-select: none;
-    animation: loadingUp ease-in-out 1.5s;
+    opacity: 0;
+    animation: loadingUp forwards 0.6s;
+}
+
+.card:nth-child(1) {
+  animation-delay: 0s;
+}
+  
+.card:nth-child(2) {
+  animation-delay: 0.5s;
+}
+  
+.card:nth-child(3) {
+  animation-delay: 1s;
 }
 
 ul{
@@ -103,7 +116,7 @@ li img{
         margin-top: 20px;
     }
 }
-@media (max-width: 1440px){
+@media (max-width: 1582px){
     .card__container{
         overflow-y: scroll;
     }
